@@ -1,0 +1,24 @@
+.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  padding-top: 5px;
+  scroll-behavior: smooth;
+}
+
+.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-decoration: none;
+}
+
+.mat-toolbar {
+  height: 70px;
+}
+
+.menu-row {
+  padding-top: 10px;
+}

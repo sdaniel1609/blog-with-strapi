@@ -1,0 +1,10 @@
+<app-header (menuClickEvent)="sidenav.toggle()"></app-header>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side">
+    Sidenav content
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-home></app-home>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,30 @@
+.header {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.search {
+  font-size: 15px;
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding-left: 8px;
+}
+
+
+mat-toolbar {
+  box-shadow: 0 1px 30px 1px rgba(0, 0, 0, 0.73);
+  height: 70px;
+  position:relative;
+  z-index:2;
+}
+
+.toolbar-row {
+  justify-content: space-between;
+}
