@@ -1,20 +1,24 @@
+<div class="progress-container" *ngIf="isArticlePage">
+  <div class="progress-bar" id="scrollBar"></div>
+</div>
 <mat-toolbar color="primary" class="header">
   <div class="container">
-    <div class="row toolbar-row">
+    <div class="row header__menu">
       <div class="col-1">
-        <span class="d-none d-lg-block">TDS</span>
+        <button class="d-none d-lg-block" mat-icon-button (click)="navigateHome()">TDS</button>
         <button mat-icon-button class="d-lg-none menu-btn" (click)="toggleSideMenu()">
           <mat-icon>menu</mat-icon>
         </button>
       </div>
-      <div class="col-3">
-        <input class="search" type="text" placeholder="Search">
-        <button mat-icon-button>
-          <mat-icon>search</mat-icon>
-        </button>
+      <div class="col-lg-3 col-md-4 col-7">
+          <label>
+            <input class="search" type="text" placeholder="Search">
+          </label>
+          <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+          </button>
       </div>
     </div>
   </div>
 </mat-toolbar>
-<app-nav-header>
-</app-nav-header>
+

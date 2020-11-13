@@ -1,33 +1,12 @@
 <div class="container home">
   <div class="row">
-    <div class="col-3 card-col">
-      <app-card></app-card>
-    </div>
-    <div class="col-3 card-col">
-      <app-card></app-card>
-    </div>
-    <div class="col-3 card-col">
-      <app-card></app-card>
-    </div>
-    <div class="col-3 card-col">
-      <app-card></app-card>
-    </div>
-    <div class="col-3 card-col">
-      <app-card></app-card>
-    </div>
-    <div class="col-3 card-col">
-      <app-card></app-card>
-    </div>
-    <div class="col-3 card-col">
-      <app-card></app-card>
-    </div>
-    <div class="col-3 card-col">
-      <app-card></app-card>
+    <div class="col-lg-3 col-md-6 col-12 card-col" *ngFor="let article of articles">
+      <app-card [title]="article.title" [category]="article.category?.name"></app-card>
     </div>
   </div>
-  <div class="row  justify-content-md-center pagination">
-    <div class="col-2">
+  <div class="row  justify-content-center pagination">
+    <div class="col-12 pagination">
       <app-pagination> </app-pagination>
     </div>
-  </div>
+</div>
 </div>

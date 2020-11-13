@@ -6,6 +6,7 @@
   transition: all .3s ease-in-out;
   &__category {
     font-style: italic;
+    min-height: 20px;
   }
   &__title {
     font-weight: bold;
@@ -18,13 +19,6 @@
   }
   &__views {
     align-self: center;
-    .mat-icon {
-    }
-    &-count {
-      padding-left: 5px;
-      font-weight: bold;
-      vertical-align: super;
-    }
   }
   &__read {
     line-height: 20px !important;

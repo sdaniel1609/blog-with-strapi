@@ -1,10 +1,18 @@
-<app-header (menuClickEvent)="sidenav.toggle()"></app-header>
+<app-header (navigateHomeEvent)="navigateHome()" (menuClickEvent)="sidenav.toggle()" [isArticlePage]="isArticlePage"></app-header>
+<app-nav-header *ngIf="!isArticlePage && !loading" [categories]="categories"></app-nav-header>
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side">
-    Sidenav content
+  <mat-sidenav #sidenav mode="over">
+    <mat-selection-list [multiple]="false" *ngIf="!loading">
+      <mat-list-option routerLink="/home" (click)="sidenav.toggle()">
+        HOME
+      </mat-list-option>
+      <mat-list-option *ngFor="let category of categories">
+        {{category.name | uppercase}}
+      </mat-list-option>
+    </mat-selection-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <app-home></app-home>
+  <mat-sidenav-content appScrollProgress [active]="isArticlePage">
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

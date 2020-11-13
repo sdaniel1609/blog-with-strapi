@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +7,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() menuClickEvent = new EventEmitter <any> ();
+  @Output() navigateHomeEvent = new EventEmitter <any> ();
+  @Input() isArticlePage: boolean;
   constructor() { }
 
   ngOnInit(): void {
@@ -14,5 +16,8 @@ export class HeaderComponent implements OnInit {
 
   public toggleSideMenu(): void {
     this.menuClickEvent.emit();
+  }
+  public navigateHome(): void {
+    this.navigateHomeEvent.emit();
   }
 }

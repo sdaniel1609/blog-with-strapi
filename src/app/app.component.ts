@@ -1,29 +1,50 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {Apollo} from 'apollo-angular';
-import CATEGORIES_QUERY from './apollo/queries/category/categories';
+import {NavigationEnd, Router} from '@angular/router';
+import {Article, ArticleService} from './service/article/article.service';
+import {CategoryService} from './service/category/category.service';
+export interface Categories {
+  categories: any[];
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit, OnDestroy{
-  data: any = {};
+  categories: any[];
+  articles: Article[];
   loading = true;
-  errors: any;
+  isArticlePage: boolean;
+
+
+
   private queryCategories: Subscription;
-  constructor(private apollo: Apollo) {}
+  private queryArticles: Subscription;
+
+
+  constructor(private articleService: ArticleService, private router: Router, private categoryService: CategoryService) {
+    this.router.events.subscribe(
+      (event: any) => {
+        if (event instanceof NavigationEnd) {
+          this.router.url === '/article' ? this.isArticlePage = true : this.isArticlePage = false;
+        }
+      }
+    );
+  }
 
   ngOnInit(): void {
-    this.queryCategories = this.apollo
-      .watchQuery({
-        query: CATEGORIES_QUERY
-      })
-      .valueChanges.subscribe(result => {
-        this.data = result.data;
+    this.categories = this.categoryService.getCategories()
+      .valueChanges.subscribe((result) => {
+        this.categories = result.data.categories;
         this.loading = result.loading;
-        this.errors = result.errors;
+        console.log(this.categories)
       });
+  }
+
+  public navigateHome(): void {
+    this.router.navigate(['/home']);
   }
 
   ngOnDestroy(): void {

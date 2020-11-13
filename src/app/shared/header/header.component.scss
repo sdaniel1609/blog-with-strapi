@@ -1,8 +1,7 @@
 .header {
-  position: sticky;
-  position: -webkit-sticky; /* For macOS/iOS Safari */
-  top: 0; /* Sets the sticky toolbar to be on top */
-  z-index: 1000;
+  &__menu {
+    justify-content: space-between;
+  }
 }
 .spacer {
   flex: 1 1 auto;
@@ -15,6 +14,7 @@
   outline: none;
   border: none;
   padding-left: 8px;
+  width: 100%;
 }
 
 
@@ -25,6 +25,23 @@ mat-toolbar {
   z-index:2;
 }
 
-.toolbar-row {
-  justify-content: space-between;
+.progress-container {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: #2292eb;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: rgb(135, 241, 95);
+  width: 0;
+  transition-timing-function: ease-out;
+  transition: width .5s;
+  height: 100vh;
 }

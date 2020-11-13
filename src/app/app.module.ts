@@ -18,6 +18,11 @@ import {HomeComponent} from './pages/home/home.component';
 import {CardComponent} from './shared/card/card.component';
 import {MatCardModule} from '@angular/material/card';
 import {PaginationComponent} from './shared/pagination/pagination.component';
+import {ViewsCountComponent} from './shared/views-count/views-count.component';
+import {ArticleComponent} from './pages/article/article.component';
+import {UserProfileComponent} from './shared/user-profile/user-profile.component';
+import {MatListModule} from '@angular/material/list';
+import {ScrollProgressDirective} from './shared/scroll-progress.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,11 @@ import {PaginationComponent} from './shared/pagination/pagination.component';
     NavHeaderComponent,
     HomeComponent,
     CardComponent,
-    PaginationComponent
+    PaginationComponent,
+    ViewsCountComponent,
+    ArticleComponent,
+    UserProfileComponent,
+    ScrollProgressDirective
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,8 @@ import {PaginationComponent} from './shared/pagination/pagination.component';
     MatInputModule,
     ScrollingModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
