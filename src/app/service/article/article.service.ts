@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Apollo} from 'apollo-angular';
-import ARTICLES_QUERY from '../../apollo/queries/category/article';
+import {articles} from './articles';
 
 export interface Article {
-  category: any;
+  category: { name: string };
   id: number;
-  image: any;
+  image: string;
   title: string;
+  viewCount: number;
 }
 
 @Injectable({
@@ -14,12 +14,9 @@ export interface Article {
 })
 export class ArticleService {
 
-  constructor(private apollo: Apollo) { }
+  constructor() { }
 
-  public getArticles(): any{
-    return this.apollo
-      .watchQuery<Article[]>({
-        query: ARTICLES_QUERY
-      });
+  public getArticles(): Article[]{
+    return articles;
   }
 }

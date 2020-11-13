@@ -1,8 +1,8 @@
 <app-header (navigateHomeEvent)="navigateHome()" (menuClickEvent)="sidenav.toggle()" [isArticlePage]="isArticlePage"></app-header>
-<app-nav-header *ngIf="!isArticlePage && !loading" [categories]="categories"></app-nav-header>
+<app-nav-header *ngIf="!isArticlePage" [categories]="categories"></app-nav-header>
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="over">
-    <mat-selection-list [multiple]="false" *ngIf="!loading">
+    <mat-selection-list [multiple]="false">
       <mat-list-option routerLink="/home" (click)="sidenav.toggle()">
         HOME
       </mat-list-option>
